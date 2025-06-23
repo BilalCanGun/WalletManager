@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\GoalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WalletController;
@@ -33,4 +35,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/goals', [GoalController::class, 'store'])->name('goals.store');
     Route::put('/goals/{goalid}', [GoalController::class, 'update'])->name('goals.update');
     Route::delete('/goals/{goalid}', [GoalController::class, 'destroy'])->name('goals.destroy');
+
+    Route::get('/update-currencies', [CurrencyController::class, 'updateCurrencies']);
 });
