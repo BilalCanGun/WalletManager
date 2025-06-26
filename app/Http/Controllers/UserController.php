@@ -23,6 +23,8 @@ class UserController extends Controller
             'password' => 'required|min:8',
             'borntime' => 'nullable|date',
             'telno' => 'nullable|string|max:20',
+            'job' => 'nullable|string|max:30',
+            'saving' => 'nullable|integer',
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
@@ -40,6 +42,8 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,' . $id . ',userid',
             'borntime' => 'nullable|date',
             'telno' => 'nullable|string|max:20',
+            'job' => 'nullable|string|max:30',
+            'saving' => 'nullable|integer',
         ]);
 
         if ($request->filled('password')) {

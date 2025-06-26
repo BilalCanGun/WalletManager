@@ -294,6 +294,14 @@
                             <span class="nav-text"> Hedefler </span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('currencies.index') }}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:dollar-outline"></iconify-icon>
+                            </span>
+                            <span class="nav-text"> Döviz Kurları </span>
+                        </a>
+                    </li>
 
 
 

@@ -8,13 +8,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-
+use Illuminate\Support\Facades\Schedule;
 
 Route::get('/dashboard', function () {
     dd(Auth::user());
 });
-
+Schedule::command('currency:update-daily')->dailyAt('14:37');
 Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->group(function () {
@@ -36,5 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/goals/{goalid}', [GoalController::class, 'update'])->name('goals.update');
     Route::delete('/goals/{goalid}', [GoalController::class, 'destroy'])->name('goals.destroy');
 
+    Route::get('/currencies', [CurrencyController::class, 'index'])->name('currencies.index');
     Route::get('/update-currencies', [CurrencyController::class, 'updateCurrencies']);
+    Route::get('/update-gold', [CurrencyController::class, 'getGoldPrice']);
 });

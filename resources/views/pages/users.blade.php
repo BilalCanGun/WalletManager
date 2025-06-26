@@ -16,6 +16,8 @@
                     <th>Email</th>
                     <th>Telefon</th>
                     <th>Doğum Tarihi</th>
+                    <th>Mesleği</th>
+                    <th>Aylık Tasarrufu $</th>
                     <th>İşlemler</th>
                 </tr>
             </thead>
@@ -26,6 +28,8 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->telno }}</td>
                         <td>{{ $user->borntime }}</td>
+                        <td>{{ $user->job }}</td>
+                        <td>{{ $user->saving }}$</td>
                         <td>
                             <!-- Güncelleme Butonu -->
                             <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
@@ -80,6 +84,16 @@
                                             <input type="date" name="borntime" class="form-control"
                                                 value="{{ $user->borntime }}">
                                         </div>
+                                        <div class="mb-3">
+                                            <label>Mesleği</label>
+                                            <input type="text" name="job" class="form-control"
+                                                value="{{ $user->job }}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Aylık Tasarrufu $</label>
+                                            <input type="number" name="saving" class="form-control"
+                                                value="{{ $user->saving }}">
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Güncelle</button>
@@ -118,6 +132,14 @@
                 <div class="col-md-4">
                     <label>Doğum Tarihi</label>
                     <input type="date" name="borntime" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label>Mesleği</label>
+                    <input type="text" name="job" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label>Aylık Tasarrufu $</label>
+                    <input type="number" name="saving" class="form-control">
                 </div>
                 <div class="col-md-12 mt-3">
                     <button type="submit" class="btn btn-success">Kullanıcı Ekle</button>

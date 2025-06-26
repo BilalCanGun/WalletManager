@@ -12,6 +12,6 @@ class Currency extends Model
     protected $fillable = [
         'code',      // USD, EUR, vs.
         'name',      // Dolar, Euro gibi
-        'try_rate',  // TL karşılığı
+        'usd_rate',  // TL karşılığı
     ];
 }
