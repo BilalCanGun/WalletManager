@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\GoalController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\WalletController;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/wallets', [WalletController::class, 'store']);
     Route::put('/wallets/{walletid}', [WalletController::class, 'update']);
     Route::delete('/wallets/{walletid}', [WalletController::class, 'destroy']);
+
+
+
+    Route::get('/goals', [GoalController::class, 'index']);
+    Route::post('/goals', [GoalController::class, 'store']);
+    Route::put('/goals/{id}', [GoalController::class, 'update']);
+    Route::delete('/goals/{id}', [GoalController::class, 'destroy']);
 });

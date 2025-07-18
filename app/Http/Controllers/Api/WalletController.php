@@ -34,6 +34,10 @@ class WalletController extends Controller
     {
         $wallet = MyWallet::findOrFail($walletid);
 
+        if (!$wallet) {
+            return redirect()->back()->with('error', 'Cüzdan bulunamadı');
+        }
+
         $validated = $request->validate([
             'userid' => 'required|exists:users,userid',
             'type' => 'required|string',
